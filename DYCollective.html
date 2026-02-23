@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>DY Collective | Premium Google Ads Agency</title>
+    <meta name="description" content="DY Collective adalah Growth Partner & Google Ads Agency bersertifikat. Kami merombak kampanye stagnan menjadi profit dengan fokus pada ROAS dan konversi.">
+    <meta name="robots" content="index, follow">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: {
+                        brand: { black: '#050505', dark: '#0a0a0a', gray: '#1f2937', blue: '#2563eb', accent: '#3b82f6' }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter', sans-serif; transition: background-color 0.4s ease, color 0.4s ease; overflow-x: hidden; }
+        .text-gradient { background: linear-gradient(135deg, #2563eb 0%, #000000 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .dark .text-gradient { background: linear-gradient(135deg, #60a5fa 0%, #ffffff 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        
+        .bg-glow-orb { position: absolute; border-radius: 50%; filter: blur(100px); z-index: 0; pointer-events: none; opacity: 0.4; }
+        .dark .bg-glow-orb { opacity: 0.15; }
+
+        /* Accordion */
+        .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out, opacity 0.4s ease-out; opacity: 0; }
+        .accordion-item.active .accordion-content { opacity: 1; }
+        .accordion-icon { transition: transform 0.3s ease; }
+        .accordion-item.active .accordion-icon { transform: rotate(180deg); }
+
+        /* Marquee */
+        .marquee-container { overflow: hidden; white-space: nowrap; width: 100%; position: relative; display: flex; align-items: center; }
+        .marquee-container::before, .marquee-container::after { content: ""; position: absolute; top: 0; width: 150px; height: 100%; z-index: 2; pointer-events: none; }
+        .marquee-container.light-fade::before { background: linear-gradient(to right, #ffffff, transparent); left: 0; }
+        .marquee-container.light-fade::after { background: linear-gradient(to left, #ffffff, transparent); right: 0; }
+        .dark .marquee-container.light-fade::before { background: linear-gradient(to right, #050505, transparent); }
+        .dark .marquee-container.light-fade::after { background: linear-gradient(to left, #050505, transparent); }
+        .marquee-content { display: flex; align-items: center; animation: scroll 40s linear infinite; min-width: 200%; }
+        .marquee-content:hover { animation-play-state: paused; }
+        @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        
+        .client-logo { height: 40px; width: auto; max-width: 150px; margin: 0 40px; object-fit: contain; filter: grayscale(100%) opacity(50%); transition: all 0.4s ease; }
+        .client-logo:hover { filter: grayscale(0%) opacity(100%); transform: scale(1.1); }
+        .dark .client-logo { filter: grayscale(100%) opacity(40%) invert(0.8); }
+        .dark .client-logo:hover { filter: grayscale(0%) opacity(100%) invert(0); }
+
+        /* Testimonial Slider */
+        .testi-slide { transition: transform 0.5s ease, opacity 0.5s ease; position: absolute; top: 0; left: 0; width: 100%; opacity: 0; pointer-events: none; }
+        .testi-slide.active { position: relative; opacity: 1; pointer-events: auto; }
+
+        .target-btn { transition: all 0.3s ease; }
+        .target-btn.active { background-color: #2563eb; color: #ffffff; border-color: #2563eb; box-shadow: 0 10px 20px -5px rgba(37,99,235,0.4); transform: translateY(-2px); }
+        .dark .target-btn.active { background-color: #3b82f6; border-color: #3b82f6; }
+        
+        .float-wa { position: fixed; width: 60px; height: 60px; bottom: 30px; right: 30px; background-color: #25d366; color: #FFF; border-radius: 50px; text-align: center; font-size: 30px; box-shadow: 0px 4px 20px rgba(37, 211, 102, 0.4); z-index: 100; transition: transform 0.3s ease; display: flex; align-items: center; justify-content: center; text-decoration: none; }
+        .float-wa:hover { transform: scale(1.1); }
+    </style>
+</head>
+<body class="bg-white text-gray-900 dark:bg-brand-black dark:text-gray-100 relative">
+
+    <div class="bg-glow-orb w-[500px] h-[500px] bg-blue-400 top-[-100px] left-[-100px]"></div>
+    <div class="bg-glow-orb w-[600px] h-[600px] bg-cyan-400 top-[20%] right-[-200px] opacity-20"></div>
+
+    <a href="https://wa.me/6287887046946?text=Halo%20DY%20Collective,%20saya%20ingin%20berdiskusi%20tentang%20Google%20Ads." class="float-wa" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+
+    <nav class="fixed w-full z-50 top-0 bg-white/80 dark:bg-brand-black/80 backdrop-blur-xl border-b border-gray-100 dark:border-gray-800 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-20">
+            <div class="font-black text-2xl tracking-tighter z-10">DY<span class="text-brand-blue">Collective.</span></div>
+            
+            <div class="hidden md:flex space-x-6 items-center z-10">
+                <a href="#about" class="lang-text text-sm font-semibold text-gray-600 dark:text-gray-300 hover:text-brand-blue transition" data-ina="Mengapa Kami" data-eng="Why Us">Mengapa Kami</a>
+                <a href="#services" class="lang-text text-sm font-semibold text-gray-600 dark:text-gray-300 hover:text-brand-blue transition" data-ina="Layanan" data-eng="Services">Layanan</a>
+                <a href="#calculator" class="lang-text text-sm font-semibold text-gray-600 dark:text-gray-300 hover:text-brand-blue transition" data-ina="Kalkulator ROI" data-eng="ROI Calc">Kalkulator ROI</a>
+                
+                <div class="flex items-center gap-2 border-l border-gray-200 dark:border-gray-700 pl-6 ml-2">
+                    <button id="langToggle" class="flex items-center gap-2 bg-gray-100 dark:bg-gray-800 px-3 py-1.5 rounded-md text-xs font-bold text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 transition">
+                        <i class="fa-solid fa-globe text-brand-blue"></i> <span id="currentLang">INA</span>
+                    </button>
+                    <button id="themeToggle" class="flex items-center justify-center w-8 h-8 rounded-md bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 transition">
+                        <i class="fa-solid fa-moon dark:hidden"></i>
+                        <i class="fa-solid fa-sun hidden dark:block text-yellow-400"></i>
+                    </button>
+                </div>
+                <a href="#form-audit" class="lang-text bg-brand-black dark:bg-white text-white dark:text-black px-6 py-2.5 text-sm font-bold rounded-lg hover:scale-105 transition-transform ml-4 shadow-lg shadow-black/10 dark:shadow-white/10" data-ina="Audit Akun" data-eng="Account Audit">Audit Akun</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="relative pt-32 pb-12 lg:pt-40 lg:pb-16 z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:text-left">
+            <div class="max-w-4xl mx-auto md:mx-0">
+                <div class="inline-flex items-center gap-2 px-4 py-2 bg-white/50 dark:bg-gray-800/50 backdrop-blur-md border border-gray-200 dark:border-gray-700 rounded-full text-brand-blue text-xs font-bold uppercase tracking-wider mb-8 shadow-sm">
+                    <i class="fa-brands fa-google text-brand-blue"></i> <span class="lang-text" data-ina="Official Google Ads Partner" data-eng="Official Google Ads Partner">Official Google Ads Partner</span>
+                </div>
+                
+                <h1 class="lang-text text-5xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-[1.05] mb-6"
+                    data-ina="Berhenti Membakar Uang. <br><span class='text-gradient'>Ekspansi Bisnis Anda.</span>"
+                    data-eng="Stop Wasting Money. <br><span class='text-gradient'>Expand Your Business.</span>">
+                    Berhenti Membakar Uang. <br><span class="text-gradient">Ekspansi Bisnis Anda.</span>
+                </h1>
+                
+                <p class="lang-text text-lg sm:text-xl text-gray-600 dark:text-gray-400 mb-10 max-w-2xl leading-relaxed font-medium mx-auto md:mx-0"
+                   data-ina="Di DY Collective, kami tidak bermain dengan metrik palsu. Kami adalah partner pertumbuhan yang terobsesi dengan satu hal: <strong>Profitabilitas Kampanye Google Ads Anda.</strong>"
+                   data-eng="At DY Collective, we don't play with vanity metrics. We are a growth partner obsessed with one thing: <strong>The Profitability of Your Google Ads Campaigns.</strong>">
+                    Di DY Collective, kami tidak bermain dengan metrik palsu. Kami adalah partner pertumbuhan yang terobsesi dengan satu hal: <strong>Profitabilitas Kampanye Google Ads Anda.</strong>
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 mb-8 justify-center md:justify-start">
+                    <a href="#form-audit" class="lang-text bg-brand-blue text-white px-8 py-4 rounded-xl font-bold text-center text-lg hover:bg-blue-700 hover:shadow-lg hover:shadow-blue-500/30 transition-all" data-ina="Minta Audit Gratis" data-eng="Request Free Audit">Minta Audit Gratis</a>
+                    <a href="#about" class="lang-text bg-white/50 dark:bg-brand-black/50 backdrop-blur-md border border-gray-200 dark:border-gray-700 text-brand-black dark:text-white px-8 py-4 rounded-xl font-bold text-center text-lg hover:border-brand-blue dark:hover:border-brand-blue transition-colors" data-ina="Pelajari Cara Kerja Kami" data-eng="Learn How We Work">Pelajari Cara Kerja Kami</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="pt-10 border-t border-gray-100 dark:border-gray-800/50 mt-12">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:text-left">
+                <p class="lang-text text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-6" data-ina="DIPERCAYA OLEH 38+ BRAND & KORPORASI:" data-eng="TRUSTED BY 38+ BRANDS & CORPORATIONS:">DIPERCAYA OLEH 38+ BRAND & KORPORASI:</p>
+            </div>
+            <div class="marquee-container light-fade py-4">
+                <div class="marquee-content">
+                    <img src="Assets/akses.png" alt="Akses" class="client-logo">
+                    <img src="Assets/Alhijaz.png" alt="Alhijaz" class="client-logo">
+                    <img src="Assets/bakolan.png" alt="Bakolan" class="client-logo">
+                    <img src="Assets/Empire.png" alt="Empire" class="client-logo">
+                    <img src="Assets/FP.png" alt="FProject" class="client-logo">
+                    <img src="Assets/ghg.png" alt="GohalalGo" class="client-logo">
+                    <img src="Assets/gorilaz.png" alt="Gorillaz" class="client-logo">
+                    <img src="Assets/KX.png" alt="KXPilates" class="client-logo">
+                    <img src="Assets/Liquid.png" alt="Liquid" class="client-logo">
+                    <img src="Assets/MFT.png" alt="Myfitsociety" class="client-logo">
+                    <img src="Assets/SB.png" alt="StoryBlast" class="client-logo">
+                    <img src="Assets/SM.png" alt="SmartAir" class="client-logo">
+                    <img src="Assets/virtu.png" alt="Virtu" class="client-logo">
+
+                    <img src="Assets/akses.png" alt="Akses" class="client-logo">
+                    <img src="Assets/Alhijaz.png" alt="Alhijaz" class="client-logo">
+                    <img src="Assets/bakolan.png" alt="Bakolan" class="client-logo">
+                    <img src="Assets/Empire.png" alt="Empire" class="client-logo">
+                    <img src="Assets/FP.png" alt="FProject" class="client-logo">
+                    <img src="Assets/ghg.png" alt="GohalalGo" class="client-logo">
+                    <img src="Assets/gorilaz.png" alt="Gorillaz" class="client-logo">
+                    <img src="Assets/KX.png" alt="KXPilates" class="client-logo">
+                    <img src="Assets/Liquid.png" alt="Liquid" class="client-logo">
+                    <img src="Assets/MFT.png" alt="Myfitsociety" class="client-logo">
+                    <img src="Assets/SB.png" alt="StoryBlast" class="client-logo">
+                    <img src="Assets/SM.png" alt="SmartAir" class="client-logo">
+                    <img src="Assets/virtu.png" alt="Virtu" class="client-logo">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-gray-50 dark:bg-[#0c0c0c] border-y border-gray-100 dark:border-gray-800/50 relative z-10" id="stats-section">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="lang-text text-sm font-bold text-brand-blue tracking-widest uppercase mb-3" data-ina="Proof of Performance" data-eng="Proof of Performance">Proof of Performance</h2>
+                <h3 class="lang-text text-3xl sm:text-4xl font-black dark:text-white" data-ina="Ekosistem Data yang Menghasilkan Pertumbuhan" data-eng="Data Ecosystems That Drive Growth">Ekosistem Data yang Menghasilkan Pertumbuhan</h3>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 divide-y md:divide-y-0 md:divide-x divide-gray-200 dark:divide-gray-800 text-center">
+                <div class="py-4 md:px-8">
+                    <div class="text-5xl lg:text-6xl font-black text-brand-blue mb-2 flex justify-center items-center gap-1">
+                        <span class="counter" data-target="30">0</span>x
+                    </div>
+                    <div class="lang-text text-sm font-bold text-gray-900 dark:text-white mb-1 uppercase tracking-wider" data-ina="Puncak ROAS (Return on Ad Spend)" data-eng="Peak ROAS (Return on Ad Spend)">Puncak ROAS (Return on Ad Spend)</div>
+                    <p class="lang-text text-xs text-gray-500" data-ina="Tercapai konsisten pada kampanye e-commerce skala tinggi." data-eng="Consistently achieved on high-scale e-commerce campaigns.">Tercapai konsisten pada kampanye e-commerce skala tinggi.</p>
+                </div>
+                <div class="py-4 md:px-8">
+                    <div class="text-5xl lg:text-6xl font-black text-green-500 mb-2 flex justify-center items-center gap-1">
+                        Rp <span class="counter" data-target="20">0</span>k
+                    </div>
+                    <div class="lang-text text-sm font-bold text-gray-900 dark:text-white mb-1 uppercase tracking-wider" data-ina="Cost Per Lead (CPL) Terendah" data-eng="Lowest Cost Per Lead (CPL)">Cost Per Lead (CPL) Terendah</div>
+                    <p class="lang-text text-xs text-gray-500" data-ina="Mendominasi industri jasa yang sangat kompetitif." data-eng="Dominating highly competitive service industries.">Mendominasi industri jasa yang sangat kompetitif.</p>
+                </div>
+                <div class="py-4 md:px-8">
+                    <div class="text-5xl lg:text-6xl font-black text-purple-500 mb-2 flex justify-center items-center gap-1">
+                        <span class="counter" data-target="38">0</span>+
+                    </div>
+                    <div class="lang-text text-sm font-bold text-gray-900 dark:text-white mb-1 uppercase tracking-wider" data-ina="Brand Telah Terskalakan" data-eng="Brands Scaled">Brand Telah Terskalakan</div>
+                    <p class="lang-text text-xs text-gray-500" data-ina="Dari klinik estetika, SaaS B2B, otomotif, hingga properti." data-eng="From aesthetic clinics, B2B SaaS, automotive, to property.">Dari klinik estetika, SaaS B2B, otomotif, hingga properti.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-24 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="lang-text text-sm font-bold text-brand-blue tracking-widest uppercase mb-3" data-ina="Mengapa DY Collective" data-eng="Why DY Collective">Mengapa DY Collective</h2>
+                    <h3 class="lang-text text-3xl sm:text-5xl font-black mb-6 dark:text-white leading-tight" data-ina="Ini Bukan Tentang Berapa Anggaran Anda, Tapi Bagaimana Kami Mengeksekusinya." data-eng="It's Not About Your Budget, It's How We Execute It.">Ini Bukan Tentang Berapa Anggaran Anda, Tapi Bagaimana Kami Mengeksekusinya.</h3>
+                    <p class="lang-text text-gray-600 dark:text-gray-400 mb-8 text-lg" data-ina="Mayoritas agensi hanya peduli pada impresi dan klik semu. Kami membangun arsitektur pelacakan (tracking) yang presisi terlebih dahulu sebelum menghabiskan anggaran Anda." data-eng="Most agencies only care about impressions and vanity clicks. We build precise tracking architecture first before spending your budget.">
+                        Mayoritas agensi hanya peduli pada impresi dan klik semu. Kami membangun arsitektur pelacakan (tracking) yang presisi terlebih dahulu sebelum menghabiskan anggaran Anda.
+                    </p>
+                </div>
+
+                <div class="space-y-4">
+                    <div class="accordion-item active bg-white dark:bg-[#111111] border border-gray-200 dark:border-gray-800 rounded-2xl overflow-hidden shadow-sm">
+                        <button class="accordion-header w-full px-6 py-5 text-left flex justify-between items-center bg-gray-50 dark:bg-[#151515] hover:bg-gray-100 dark:hover:bg-gray-800 transition">
+                            <span class="font-bold text-lg dark:text-white">Precision Tracking (GTM & GA4)</span>
+                            <i class="fa-solid fa-chevron-down accordion-icon dark:text-gray-400"></i>
+                        </button>
+                        <div class="accordion-content bg-white dark:bg-[#111111]">
+                            <div class="lang-text px-6 pb-6 pt-2 text-gray-600 dark:text-gray-400 text-sm leading-relaxed" data-ina="Tanpa pelacakan yang benar, algoritma Google akan bekerja buta. Kami mengatur konversi (Klik WA, Form Leads, Checkout) dengan Server-Side Tagging agar algoritma fokus mencari pembeli potensial." data-eng="Without proper tracking, Google's algorithm works blindly. We setup conversions (WA Clicks, Lead Forms, Checkouts) with Server-Side Tagging so the algorithm focuses on finding potential buyers.">
+                                Tanpa pelacakan yang benar, algoritma Google akan bekerja buta. Kami mengatur konversi (Klik WA, Form Leads, Checkout) dengan Server-Side Tagging agar algoritma fokus mencari pembeli potensial.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item bg-white dark:bg-[#111111] border border-gray-200 dark:border-gray-800 rounded-2xl overflow-hidden shadow-sm">
+                        <button class="accordion-header w-full px-6 py-5 text-left flex justify-between items-center bg-gray-50 dark:bg-[#151515] hover:bg-gray-100 dark:hover:bg-gray-800 transition">
+                            <span class="font-bold text-lg dark:text-white">AI-Driven Optimization (GEAR)</span>
+                            <i class="fa-solid fa-chevron-down accordion-icon dark:text-gray-400"></i>
+                        </button>
+                        <div class="accordion-content bg-white dark:bg-[#111111]">
+                            <div class="lang-text px-6 pb-6 pt-2 text-gray-600 dark:text-gray-400 text-sm leading-relaxed" data-ina="Sebagai agensi tersertifikasi Gemini Enterprise Agent Ready (GEAR), kami memadukan strategi analitik manusia dengan presisi AI untuk memangkas Biaya Akuisisi (CPA) Anda secara efisien." data-eng="As a Gemini Enterprise Agent Ready (GEAR) certified agency, we combine human analytical strategy with AI precision to efficiently cut your Cost Per Acquisition (CPA).">
+                                Sebagai agensi tersertifikasi Gemini Enterprise Agent Ready (GEAR), kami memadukan strategi analitik manusia dengan presisi AI untuk memangkas Biaya Akuisisi (CPA) Anda secara efisien.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item bg-white dark:bg-[#111111] border border-gray-200 dark:border-gray-800 rounded-2xl overflow-hidden shadow-sm">
+                        <button class="accordion-header w-full px-6 py-5 text-left flex justify-between items-center bg-gray-50 dark:bg-[#151515] hover:bg-gray-100 dark:hover:bg-gray-800 transition">
+                            <span class="font-bold text-lg dark:text-white">Account Safety & Whitelisting</span>
+                            <i class="fa-solid fa-chevron-down accordion-icon dark:text-gray-400"></i>
+                        </button>
+                        <div class="accordion-content bg-white dark:bg-[#111111]">
+                            <div class="lang-text px-6 pb-6 pt-2 text-gray-600 dark:text-gray-400 text-sm leading-relaxed" data-ina="Bisnis Anda berada di area sensitif (seperti klinik kecantikan atau properti)? Kami menyediakan struktur akun dengan histori pembayaran bersih untuk mitigasi otomatis penangguhan (suspend) sistem." data-eng="Is your business in a sensitive niche (like aesthetic clinics or property)? We provide account structures with clean payment histories to automatically mitigate system suspensions.">
+                                Bisnis Anda berada di area sensitif (seperti klinik kecantikan atau properti)? Kami menyediakan struktur akun dengan histori pembayaran bersih untuk mitigasi otomatis penangguhan (suspend) sistem.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-gray-50 dark:bg-[#050505] border-y border-gray-200 dark:border-gray-800 relative z-10 overflow-hidden">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
+            <h2 class="lang-text text-sm font-bold text-brand-blue tracking-widest uppercase mb-4" data-ina="KATA KLIEN KAMI" data-eng="WHAT OUR CLIENTS SAY">KATA KLIEN KAMI</h2>
+            
+            <div class="relative min-h-[250px] md:min-h-[200px] mt-8">
+                <div class="testi-slide active">
+                    <i class="fa-solid fa-quote-left text-4xl text-gray-300 dark:text-gray-700 mb-6"></i>
+                    <p class="lang-text text-xl md:text-2xl font-medium text-gray-800 dark:text-gray-200 mb-8 leading-relaxed" data-ina="Luar biasa. Tim DY Collective tidak sekadar menjalankan iklan, mereka membedah struktur konversi kami. Hasilnya? Target ROAS harian kami tercapai dengan stabil." data-eng="Incredible. The DY Collective team didn't just run ads, they dissected our conversion structure. The result? Our daily ROAS targets are met consistently.">"Luar biasa. Tim DY Collective tidak sekadar menjalankan iklan, mereka membedah struktur konversi kami. Hasilnya? Target ROAS harian kami tercapai dengan stabil."</p>
+                    <div class="font-bold text-brand-black dark:text-white">Brand E-Commerce Retail</div>
+                    <div class="text-sm text-brand-blue">Klien Performance Ads</div>
+                </div>
+                <div class="testi-slide">
+                    <i class="fa-solid fa-quote-left text-4xl text-gray-300 dark:text-gray-700 mb-6"></i>
+                    <p class="lang-text text-xl md:text-2xl font-medium text-gray-800 dark:text-gray-200 mb-8 leading-relaxed" data-ina="Industri klinik kecantikan sangat rentan suspend di Google. DY Collective memberikan solusi perlindungan akun dan menekan biaya per janji temu (CPL) secara signifikan." data-eng="The aesthetic clinic industry is highly prone to Google suspensions. DY Collective provided account protection solutions and significantly reduced our cost per appointment (CPL).">"Industri klinik kecantikan sangat rentan suspend di Google. DY Collective memberikan solusi perlindungan akun dan menekan biaya per janji temu (CPL) secara signifikan."</p>
+                    <div class="font-bold text-brand-black dark:text-white">Klinik Estetika Jakarta</div>
+                    <div class="text-sm text-brand-blue">Klien Lead Generation</div>
+                </div>
+            </div>
+
+            <div class="flex justify-center gap-3 mt-8" id="testiDots">
+                <button class="w-8 h-2 rounded-full bg-brand-blue transition-all duration-300"></button>
+                <button class="w-2 h-2 rounded-full bg-gray-300 dark:bg-gray-700 transition-all duration-300"></button>
+            </div>
+        </div>
+    </section>
+
+    <section id="calculator" class="py-24 bg-brand-black text-white relative z-10">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="lang-text text-3xl sm:text-5xl font-black mb-4" data-ina="Proyeksi ROAS Google Ads" data-eng="Google Ads ROAS Projection">Proyeksi ROAS Google Ads</h2>
+            <p class="lang-text text-gray-400 mb-12" data-ina="Simulasikan potensi pendapatan bisnis Anda menggunakan standar industri kami (Target Minimum ROAS 300%)." data-eng="Simulate your business revenue potential using our industry standard (Minimum Target ROAS 300%).">Simulasikan potensi pendapatan bisnis Anda menggunakan standar industri kami (Target Minimum ROAS 300%).</p>
+            
+            <div class="bg-[#111111] p-8 md:p-12 rounded-3xl shadow-2xl border border-gray-800 relative overflow-hidden text-left">
+                <div class="absolute top-0 right-0 w-64 h-64 bg-brand-blue opacity-10 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2"></div>
+                
+                <div class="mb-10 relative z-10 text-center">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <button class="target-btn active border border-gray-700 bg-gray-900 rounded-xl p-4 cursor-pointer" data-budget="5000000">
+                            <div class="lang-text font-bold text-gray-200" data-ina="Paket UMKM" data-eng="SME Package">Paket UMKM</div>
+                            <div class="lang-text text-xs text-gray-500 mt-1" data-ina="Anggaran Rp 5 Juta" data-eng="Budget Rp 5 Million">Anggaran Rp 5 Juta</div>
+                        </button>
+                        <button class="target-btn border border-gray-700 bg-gray-900 rounded-xl p-4 cursor-pointer" data-budget="15000000">
+                            <div class="lang-text font-bold text-gray-200" data-ina="Paket Growth" data-eng="Growth Package">Paket Growth</div>
+                            <div class="lang-text text-xs text-gray-500 mt-1" data-ina="Anggaran Rp 15 Juta" data-eng="Budget Rp 15 Million">Anggaran Rp 15 Juta</div>
+                        </button>
+                        <button class="target-btn border border-gray-700 bg-gray-900 rounded-xl p-4 cursor-pointer" data-budget="50000000">
+                            <div class="lang-text font-bold text-gray-200" data-ina="Paket Scale" data-eng="Scale Package">Paket Scale</div>
+                            <div class="lang-text text-xs text-gray-500 mt-1" data-ina="Anggaran Rp 50 Juta" data-eng="Budget Rp 50 Million">Anggaran Rp 50 Juta</div>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="bg-[#050505] rounded-2xl p-8 border border-gray-800 relative z-10 text-center">
+                    <div class="lang-text text-sm font-bold text-gray-400 mb-2 uppercase tracking-wider" data-ina="Estimasi Omzet (Revenue)" data-eng="Estimated Revenue">Estimasi Omzet (Revenue)</div>
+                    <div class="text-[clamp(2rem,8vw,3.75rem)] font-black text-green-400 tracking-tighter transition-all duration-300 break-words w-full" id="revenueValue">Rp 15.000.000</div>
+                    <p class="lang-text text-xs text-gray-500 mt-4" data-ina="*Perhitungan bersifat estimasi. Konversi riil dipengaruhi oleh kualitas penawaran (offer) dan tim sales Anda." data-eng="*Calculation is an estimate. Real conversion is influenced by offer quality and your sales team.">*Perhitungan bersifat estimasi. Konversi riil dipengaruhi oleh kualitas penawaran (offer) dan tim sales Anda.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-24 bg-white dark:bg-[#0c0c0c] relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="lang-text text-3xl sm:text-5xl font-black text-center mb-16 dark:text-white" data-ina="Layanan Spesialisasi Google" data-eng="Google Specialization Services">Layanan Spesialisasi Google</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-gray-50 dark:bg-[#151515] border border-gray-200 dark:border-gray-800 p-10 rounded-2xl hover:border-brand-blue transition">
+                    <div class="w-14 h-14 bg-blue-50 dark:bg-blue-900/20 text-brand-blue rounded-xl flex items-center justify-center text-2xl mb-6"><i class="fa-solid fa-bullseye"></i></div>
+                    <h3 class="lang-text text-2xl font-bold mb-4 dark:text-white" data-ina="Performance Google Ads" data-eng="Performance Google Ads">Performance Google Ads</h3>
+                    <p class="lang-text text-gray-600 dark:text-gray-400" data-ina="Pengelolaan kampanye Search, Display, PMax, dan YouTube secara presisi. Meliputi optimasi penawaran (bidding) hingga pengujian A/B." data-eng="Precise management of Search, Display, PMax, and YouTube campaigns. Includes bid optimization and A/B testing.">Pengelolaan kampanye Search, Display, PMax, dan YouTube secara presisi. Meliputi optimasi penawaran (bidding) hingga pengujian A/B.</p>
+                </div>
+                <div class="bg-gray-50 dark:bg-[#151515] border border-gray-200 dark:border-gray-800 p-10 rounded-2xl hover:border-purple-500 transition">
+                    <div class="w-14 h-14 bg-purple-50 dark:bg-purple-900/20 text-purple-500 rounded-xl flex items-center justify-center text-2xl mb-6"><i class="fa-solid fa-satellite-dish"></i></div>
+                    <h3 class="lang-text text-2xl font-bold mb-4 dark:text-white" data-ina="Web Analytics & GTM" data-eng="Web Analytics & GTM">Web Analytics & GTM</h3>
+                    <p class="lang-text text-gray-600 dark:text-gray-400" data-ina="Pemasangan pelacak konversi lanjutan (Advanced Tracking) untuk memastikan setiap aksi bernilai tinggi terekam di Analytics." data-eng="Installation of Advanced Tracking to ensure every high-value action is perfectly recorded in Analytics.">Pemasangan pelacak konversi lanjutan (Advanced Tracking) untuk memastikan setiap aksi bernilai tinggi terekam di Analytics.</p>
+                </div>
+                <div class="bg-gray-50 dark:bg-[#151515] border border-gray-200 dark:border-gray-800 p-10 rounded-2xl hover:border-emerald-500 transition">
+                    <div class="w-14 h-14 bg-emerald-50 dark:bg-emerald-900/20 text-emerald-500 rounded-xl flex items-center justify-center text-2xl mb-6"><i class="fa-solid fa-building-user"></i></div>
+                    <h3 class="lang-text text-2xl font-bold mb-4 dark:text-white" data-ina="White-Label Partner" data-eng="White-Label Partner">White-Label Partner</h3>
+                    <p class="lang-text text-gray-600 dark:text-gray-400" data-ina="Solusi dukungan operasional bagi Agensi Kreatif. Kami menjalankan aspek teknis iklan; pelaporan tetap menggunakan identitas brand Anda." data-eng="Operational support solution for Creative Agencies. We run the technical aspects; reporting remains under your brand identity.">Solusi dukungan operasional bagi Agensi Kreatif. Kami menjalankan aspek teknis iklan; pelaporan tetap menggunakan identitas brand Anda.</p>
+                </div>
+                <div class="bg-gray-50 dark:bg-[#151515] border border-gray-200 dark:border-gray-800 p-10 rounded-2xl hover:border-brand-blue transition">
+                    <div class="w-14 h-14 bg-brand-blue text-white rounded-xl flex items-center justify-center text-2xl mb-6"><i class="fa-solid fa-shield-halved"></i></div>
+                    <h3 class="lang-text text-2xl font-bold mb-4 dark:text-white" data-ina="Account Protection" data-eng="Account Protection">Account Protection</h3>
+                    <p class="lang-text text-gray-600 dark:text-gray-400" data-ina="Akses ke akun tersertifikasi untuk meminimalkan risiko penghentian layanan (suspend). Ideal untuk industri dengan regulasi iklan yang ketat." data-eng="Access to certified accounts to minimize suspension risks. Ideal for industries with strict advertising regulations.">Akses ke akun tersertifikasi untuk meminimalkan risiko penghentian layanan (suspend). Ideal untuk industri dengan regulasi iklan yang ketat.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-brand-blue text-white relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col md:flex-row items-center justify-between gap-12">
+            <div class="md:w-2/3">
+                <div class="inline-block bg-white/20 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider mb-4 border border-white/30">Free Deep-Dive Audit</div>
+                <h2 class="text-3xl sm:text-4xl font-black mb-4">Dapatkan Audit Akun Google Ads Gratis</h2>
+                <p class="text-blue-100 mb-6 text-lg">Temukan kebocoran budget di kampanye lama Anda. Tautkan akun Anda ke struktur MCC kami untuk mendapatkan analisis eksklusif tanpa komitmen di awal.</p>
+            </div>
+            <div class="md:w-1/3 text-center md:text-right">
+                <a href="https://wa.me/6287887046946?text=Halo%20DY%20Collective,%20saya%20tertarik%20untuk%20menautkan%20akun%20saya%20ke%20MCC%20untuk%20mendapatkan%20Audit%20Gratis." target="_blank" class="inline-block bg-white text-brand-blue font-black text-lg px-8 py-4 rounded-xl shadow-[0_0_30px_rgba(255,255,255,0.3)] hover:scale-105 transition-transform">Minta Akses Audit</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="form-audit" class="py-24 bg-gray-50 dark:bg-brand-black relative z-10">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white dark:bg-[#0c0c0c] p-10 sm:p-14 rounded-3xl shadow-xl border border-gray-200 dark:border-gray-800">
+                <div class="text-center mb-10">
+                    <div class="inline-block bg-blue-50 dark:bg-blue-900/20 text-brand-blue px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider mb-4 border border-blue-100 dark:border-blue-800">Free MCC Link Audit</div>
+                    <h2 class="lang-text text-3xl font-black text-brand-black dark:text-white mb-4" data-ina="Klaim Audit Akun Google Ads" data-eng="Claim Google Ads Account Audit">Klaim Audit Akun Google Ads</h2>
+                    <p class="lang-text text-gray-600 dark:text-gray-400" data-ina="Tautkan akun Anda ke infrastruktur MCC kami untuk menemukan kebocoran efisiensi. Kami membatasi kuota bulanan demi menjaga kualitas analitik." data-eng="Link your account to our MCC infrastructure to uncover efficiency leaks. We limit our monthly quota to maintain analytical quality.">Tautkan akun Anda ke infrastruktur MCC kami untuk menemukan kebocoran efisiensi. Kami membatasi kuota bulanan demi menjaga kualitas analitik.</p>
+                </div>
+
+                <form id="leadForm" class="space-y-6 text-brand-black dark:text-white mb-10">
+                    <input type="hidden" id="gclid" value="">
+                    <input type="hidden" id="utm_keyword" value="">
+                    <input type="hidden" id="utm_device" value="">
+                    <input type="hidden" id="utm_network" value="">
+                    <input type="hidden" id="utm_matchtype" value="">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-bold text-gray-700 dark:text-gray-400 mb-2">Nama Lengkap / Brand *</label>
+                            <input type="text" id="waNama" class="w-full bg-gray-50 dark:bg-[#151515] border border-gray-300 dark:border-gray-700 rounded-xl px-4 py-4 focus:outline-none focus:border-brand-blue transition" required>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold text-gray-700 dark:text-gray-400 mb-2">Nomor WhatsApp *</label>
+                            <input type="tel" id="waNomor" class="w-full bg-gray-50 dark:bg-[#151515] border border-gray-300 dark:border-gray-700 rounded-xl px-4 py-4 focus:outline-none focus:border-brand-blue transition" required>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-bold text-gray-700 dark:text-gray-400 mb-2">Layanan yang Dibutuhkan *</label>
+                            <select id="waLayanan" class="w-full bg-gray-50 dark:bg-[#151515] border border-gray-300 dark:border-gray-700 rounded-xl px-4 py-4 focus:outline-none focus:border-brand-blue transition text-sm" required>
+                                <option value="Digital Ads (Meta/Google/TikTok)">Manajemen Digital Ads (Meta/Google/TikTok)</option>
+                                <option value="Marketplace Optimization">Optimasi Marketplace (Shopee/Tokopedia)</option>
+                                <option value="Full Service (Ads + Marketplace)">Full Service (Ads + Marketplace)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold text-gray-700 dark:text-gray-400 mb-2">Link Web / Toko Marketplace</label>
+                            <input type="url" id="waWeb" placeholder="https://..." class="w-full bg-gray-50 dark:bg-[#151515] border border-gray-300 dark:border-gray-700 rounded-xl px-4 py-4 focus:outline-none focus:border-brand-blue transition">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 dark:text-gray-400 mb-2">Estimasi Anggaran Iklan Bulanan *</label>
+                        <select id="waBudget" class="w-full bg-gray-50 dark:bg-[#151515] border border-gray-300 dark:border-gray-700 rounded-xl px-4 py-4 focus:outline-none focus:border-brand-blue transition text-sm" required>
+                            <option value="Belum Pernah (Mulai Baru)">Ingin Memulai Baru (Klaim Promo)</option>
+                            <option value="Target UMKM (Rp 5 Jt)">Sekitar Rp 5 Juta / Bulan</option>
+                            <option value="Target Growth (Rp 15 Jt)">Sekitar Rp 15 Juta / Bulan</option>
+                            <option value="Target Scale (Rp 50 Jt)">Di atas Rp 50 Juta / Bulan</option>
+                            <option value="Butuh Akun Whitelist/Setup">Dukungan Akun (Whitelisting)</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="lang-text w-full bg-brand-blue text-white font-black text-lg py-5 rounded-xl hover:bg-blue-700 shadow-lg shadow-blue-500/30 transition-all mt-4" data-ina="KIRIM PERMINTAAN KONSULTASI" data-eng="SEND CONSULTATION REQUEST">
+                        KIRIM PERMINTAAN KONSULTASI
+                    </button>
+                </form>
+
+                <div class="border-t border-gray-200 dark:border-gray-800 pt-10 flex flex-col items-center justify-center">
+                    <p class="lang-text text-xs font-bold text-gray-400 uppercase tracking-widest mb-6" data-ina="KREDENSIAL PROFESIONAL KAMI:" data-eng="OUR PROFESSIONAL CREDENTIALS:">KREDENSIAL PROFESIONAL KAMI:</p>
+                    
+                    <div class="relative w-full max-w-md overflow-hidden bg-gray-50 dark:bg-[#111111] rounded-2xl border border-gray-200 dark:border-gray-800 p-6">
+                        <div id="certSlider" class="flex transition-transform duration-500 ease-in-out w-[300%]">
+                            <div class="w-1/3 flex items-center justify-center gap-5 px-4">
+                                <div class="w-12 h-12 bg-blue-50 dark:bg-blue-900/20 rounded-full flex items-center justify-center shrink-0">
+                                    <i class="fa-solid fa-medal text-2xl text-brand-blue"></i>
+                                </div>
+                                <div class="text-left">
+                                    <div class="font-bold text-sm text-gray-900 dark:text-white">Google Ads Guru</div>
+                                    <div class="lang-text text-xs text-gray-500" data-ina="Sertifikasi Teknis Kelas Atas" data-eng="Top Tier Technical Certification">Sertifikasi Teknis Kelas Atas</div>
+                                </div>
+                            </div>
+                            <div class="w-1/3 flex items-center justify-center gap-5 px-4">
+                                <div class="w-12 h-12 bg-red-50 dark:bg-red-900/20 rounded-full flex items-center justify-center shrink-0">
+                                    <i class="fa-brands fa-google text-2xl text-red-500"></i>
+                                </div>
+                                <div class="text-left">
+                                    <div class="font-bold text-sm text-gray-900 dark:text-white">Google Ads Certified</div>
+                                    <div class="lang-text text-xs text-gray-500" data-ina="Spesialis Search & Video" data-eng="Search & Video Specialist">Spesialis Search & Video</div>
+                                </div>
+                            </div>
+                            <div class="w-1/3 flex items-center justify-center gap-5 px-4">
+                                <div class="w-12 h-12 bg-purple-50 dark:bg-purple-900/20 rounded-full flex items-center justify-center shrink-0">
+                                    <i class="fa-solid fa-robot text-2xl text-purple-500"></i>
+                                </div>
+                                <div class="text-left">
+                                    <div class="font-bold text-sm text-gray-900 dark:text-white">Gemini Program (GEAR)</div>
+                                    <div class="lang-text text-xs text-gray-500" data-ina="Pemanfaatan AI untuk Skala" data-eng="AI Utilization for Scale">Pemanfaatan AI untuk Skala</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex justify-center gap-2 mt-6" id="certDots">
+                            <button class="w-4 h-2 rounded-full bg-brand-blue transition-all duration-300"></button>
+                            <button class="w-2 h-2 rounded-full bg-gray-300 dark:bg-gray-700 transition-all duration-300"></button>
+                            <button class="w-2 h-2 rounded-full bg-gray-300 dark:bg-gray-700 transition-all duration-300"></button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-white dark:bg-[#050505] text-gray-500 py-10 border-t border-gray-200 dark:border-gray-800 text-sm z-10 relative">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-4 md:mb-0 font-bold text-gray-900 dark:text-white flex items-center gap-2">
+                DY Collective <span class="bg-gray-200 dark:bg-gray-800 px-2 py-0.5 rounded text-[10px]">v2026</span>
+            </div>
+            <div class="flex gap-6">
+                <span>&copy; 2026. All Rights Reserved.</span>
+                <a href="privacy.html" class="hover:text-brand-blue transition">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 1. Dark Mode Logic
+        const themeToggleBtn = document.getElementById('themeToggle');
+        const htmlBody = document.documentElement;
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            htmlBody.classList.add('dark');
+        } else {
+            htmlBody.classList.remove('dark');
+        }
+        themeToggleBtn.addEventListener('click', () => {
+            htmlBody.classList.toggle('dark');
+            localStorage.theme = htmlBody.classList.contains('dark') ? 'dark' : 'light';
+        });
+
+        // 2. Bilingual Logic
+        let currentLang = 'ina';
+        const langToggle = document.getElementById('langToggle');
+        const langIndicator = document.getElementById('currentLang');
+        langToggle.addEventListener('click', () => {
+            currentLang = currentLang === 'ina' ? 'eng' : 'ina';
+            langIndicator.innerText = currentLang.toUpperCase();
+            document.querySelectorAll('.lang-text').forEach(el => { 
+                const newText = el.getAttribute(`data-${currentLang}`);
+                if(newText) el.innerHTML = newText; 
+            });
+        });
+
+        // 3. Animated Stats Counter Logic
+        const counters = document.querySelectorAll('.counter');
+        const animateCounters = () => {
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-target');
+                const count = +counter.innerText;
+                const inc = target / 50;
+                if (count < target) {
+                    counter.innerText = Math.ceil(count + inc);
+                    setTimeout(animateCounters, 30);
+                } else {
+                    counter.innerText = target;
+                }
+            });
+        }
+        const observer = new IntersectionObserver((entries) => {
+            if(entries[0].isIntersecting) animateCounters();
+        });
+        const statsSection = document.getElementById('stats-section');
+        if(statsSection) observer.observe(statsSection);
+
+        // 4. Accordion Logic
+        const accordionItems = document.querySelectorAll('.accordion-item');
+        accordionItems.forEach(item => {
+            const header = item.querySelector('.accordion-header');
+            header.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                accordionItems.forEach(i => {
+                    i.classList.remove('active');
+                    i.querySelector('.accordion-content').style.maxHeight = null;
+                });
+                if (!isActive) {
+                    item.classList.add('active');
+                    const content = item.querySelector('.accordion-content');
+                    content.style.maxHeight = content.scrollHeight + "px";
+                }
+            });
+        });
+        const firstAccordionContent = accordionItems[0].querySelector('.accordion-content');
+        if(firstAccordionContent) firstAccordionContent.style.maxHeight = firstAccordionContent.scrollHeight + "px";
+
+        // 5. Testimonial Slider
+        const testiSlides = document.querySelectorAll('.testi-slide');
+        const testiDots = document.getElementById('testiDots').children;
+        let testiIndex = 0;
+        function changeTestimonial() {
+            testiSlides[testiIndex].classList.remove('active');
+            testiDots[testiIndex].className = 'w-2 h-2 rounded-full bg-gray-300 dark:bg-gray-700 transition-all duration-300';
+            
+            testiIndex = (testiIndex + 1) % testiSlides.length;
+            
+            testiSlides[testiIndex].classList.add('active');
+            testiDots[testiIndex].className = 'w-8 h-2 rounded-full bg-brand-blue transition-all duration-300';
+        }
+        setInterval(changeTestimonial, 5000);
+
+        // 6. ROI Calculator Logic
+        const targetBtns = document.querySelectorAll('.target-btn');
+        const revenueValue = document.getElementById('revenueValue');
+        const formatRp = (num) => { return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }).format(num); };
+
+        targetBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                targetBtns.forEach(b => {
+                    b.classList.remove('active', 'bg-blue-600', 'text-white', 'border-blue-600');
+                    b.querySelector('div').classList.remove('text-white');
+                    b.querySelector('div').classList.add('text-gray-800', 'dark:text-gray-200');
+                });
+                this.classList.add('active');
+                this.querySelector('div').classList.remove('text-gray-800', 'dark:text-gray-200');
+                this.querySelector('div').classList.add('text-white');
+
+                const budget = parseInt(this.getAttribute('data-budget'));
+                const roasMultiplier = 3; 
+                const revenue = budget * roasMultiplier;
+                
+                revenueValue.style.opacity = 0;
+                setTimeout(() => {
+                    revenueValue.innerText = formatRp(revenue);
+                    revenueValue.style.opacity = 1;
+                }, 150);
+            });
+        });
+
+        // 7. Auto-Slide Certificates
+        const certSlider = document.getElementById('certSlider');
+        const certDots = document.getElementById('certDots').children;
+        let certIndex = 0;
+        function moveCertSlide() {
+            certIndex = (certIndex + 1) % 3;
+            certSlider.style.transform = `translateX(-${certIndex * 33.333}%)`;
+            for(let i = 0; i < certDots.length; i++) {
+                certDots[i].className = i === certIndex 
+                    ? 'w-4 h-2 rounded-full bg-brand-blue transition-all duration-300' 
+                    : 'w-2 h-2 rounded-full bg-gray-300 dark:bg-gray-700 transition-all duration-300';
+            }
+        }
+        setInterval(moveCertSlide, 3500);
+
+        // =========================================================================
+        // 8. ADVANCED OFFLINE CONVERSIONS TRACKING (GCLID & VALUETRACK) + APPS SCRIPT
+        // =========================================================================
+        
+        // A. Fungsi untuk mengambil parameter URL dari Google Ads
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param) || '';
+        }
+
+        // B. Mengisi Hidden Fields secara otomatis saat halaman dimuat
+        window.addEventListener('DOMContentLoaded', (event) => {
+            document.getElementById('gclid').value = getQueryParam('gclid');
+            document.getElementById('utm_keyword').value = getQueryParam('keyword'); 
+            document.getElementById('utm_device').value = getQueryParam('device');
+            document.getElementById('utm_network').value = getQueryParam('network');
+            document.getElementById('utm_matchtype').value = getQueryParam('matchtype');
+        });
+
+        // C. Logika Pengiriman Form ke Google Sheets & Redirect WA
+        document.getElementById('leadForm').addEventListener('submit', function(e) {
+            e.preventDefault(); 
+            
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn.innerHTML;
+            submitBtn.innerHTML = "MEMPROSES DATA...";
+            submitBtn.disabled = true;
+
+            // Mengumpulkan data Klien
+            const nama = document.getElementById('waNama').value;
+            const wa = document.getElementById('waNomor').value;
+            const layanan = document.getElementById('waLayanan').value;
+            const web = document.getElementById('waWeb').value || 'Tidak diisi';
+            const budget = document.getElementById('waBudget').value;
+
+            // Mengumpulkan data Tracking Google Ads
+            const gclid = document.getElementById('gclid').value;
+            const keyword = document.getElementById('utm_keyword').value;
+            const device = document.getElementById('utm_device').value;
+            const network = document.getElementById('utm_network').value;
+            const matchtype = document.getElementById('utm_matchtype').value;
+
+            // URL WEB APP SCRIPT ANDA
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbwlvTxhs1YQlFedBBq6jQ0ae9S6vyKo5kwsv9zYLSJflOjt7eNxwlJTSS6KZjVV0gbd/exec'; 
+
+            // Paketkan data untuk dikirim
+            const formData = new FormData();
+            formData.append('nama', nama);
+            formData.append('wa', wa);
+            formData.append('layanan', layanan);
+            formData.append('web', web);
+            formData.append('budget', budget);
+            formData.append('gclid', gclid);
+            formData.append('keyword', keyword);
+            formData.append('device', device);
+            formData.append('network', network);
+            formData.append('matchtype', matchtype);
+
+            fetch(scriptURL, { method: 'POST', body: formData, mode: 'no-cors' })
+                .then(response => {
+                    // TRACKING ONLINE (Meta & GTM)
+                    if(typeof fbq !== 'undefined') {
+                        fbq('track', 'Lead', { content_category: layanan });
+                    }
+                    window.dataLayer = window.dataLayer || [];
+                    window.dataLayer.push({
+                        'event': 'form_wa_submitted',
+                        'lead_type': layanan,
+                        'gclid': gclid // Melempar GCLID ke GTM jika dibutuhkan
+                    });
+
+                    // REDIRECT WHATSAPP KE NOMOR ANDA
+                    const nomorTujuan = '6287887046946'; 
+                    let pesan = `Halo Tim DY Collective,\n\nSaya tertarik untuk konsultasi dan audit:\n\n` +
+                                `👤 Brand/Nama: ${nama}\n` +
+                                `📱 WhatsApp: ${wa}\n` +
+                                `🎯 Layanan: ${layanan}\n` +
+                                `🌐 Toko/Web: ${web}\n` +
+                                `💰 Budget: ${budget}\n\n` +
+                                `Kapan kita bisa berdiskusi?`;
+
+                    window.open(`https://wa.me/${nomorTujuan}?text=${encodeURIComponent(pesan)}`, '_blank');
+
+                    document.getElementById('leadForm').reset();
+                    submitBtn.innerHTML = originalBtnText;
+                    submitBtn.disabled = false;
+                })
+                .catch(error => {
+                    console.error('Error!', error.message);
+                    alert("Terjadi kesalahan sistem. Silakan coba lagi nanti.");
+                    submitBtn.innerHTML = originalBtnText;
+                    submitBtn.disabled = false;
+                });
+        });
+    </script>
+</body>
+</html>
