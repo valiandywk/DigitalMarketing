@@ -2,15 +2,20 @@
 <html lang="id" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
     <title>DY Collective | Premium Google Ads Agency</title>
     <meta name="description" content="DY Collective adalah Growth Partner & Google Ads Agency bersertifikat. Kami merombak kampanye stagnan menjadi profit dengan fokus pada ROAS dan konversi.">
     <meta name="robots" content="index, follow">
 
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+
+    <script src="https://cdn.tailwindcss.com"></script>
     
     <script>
         tailwind.config = {
@@ -26,11 +31,12 @@
         }
     </script>
     <style>
-        body { font-family: 'Inter', sans-serif; transition: background-color 0.4s ease, color 0.4s ease; overflow-x: hidden; }
+        html, body { max-width: 100%; overflow-x: hidden; position: relative; }
+        body { font-family: 'Inter', sans-serif; transition: background-color 0.4s ease, color 0.4s ease; }
         .text-gradient { background: linear-gradient(135deg, #2563eb 0%, #000000 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .dark .text-gradient { background: linear-gradient(135deg, #60a5fa 0%, #ffffff 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         
-        .bg-glow-orb { position: absolute; border-radius: 50%; filter: blur(100px); z-index: 0; pointer-events: none; opacity: 0.4; }
+        .bg-glow-orb { position: absolute; border-radius: 50%; filter: blur(100px); z-index: 0; pointer-events: none; opacity: 0.4; will-change: transform; }
         .dark .bg-glow-orb { opacity: 0.15; }
 
         .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out, opacity 0.4s ease-out; opacity: 0; }
@@ -44,23 +50,23 @@
         .marquee-container.light-fade::after { background: linear-gradient(to left, #ffffff, transparent); right: 0; }
         .dark .marquee-container.light-fade::before { background: linear-gradient(to right, #050505, transparent); }
         .dark .marquee-container.light-fade::after { background: linear-gradient(to left, #050505, transparent); }
-        .marquee-content { display: flex; align-items: center; animation: scroll 40s linear infinite; min-width: 200%; }
+        .marquee-content { display: flex; align-items: center; animation: scroll 40s linear infinite; min-width: 200%; will-change: transform; }
         .marquee-content:hover { animation-play-state: paused; }
         @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
         
-        .client-logo { height: 40px; width: auto; max-width: 150px; margin: 0 40px; object-fit: contain; filter: grayscale(100%) opacity(50%); transition: all 0.4s ease; }
+        .client-logo { height: 40px; width: 150px; object-fit: contain; margin: 0 40px; filter: grayscale(100%) opacity(50%); transition: all 0.4s ease; }
         .client-logo:hover { filter: grayscale(0%) opacity(100%); transform: scale(1.1); }
         .dark .client-logo { filter: grayscale(100%) opacity(40%) invert(0.8); }
         .dark .client-logo:hover { filter: grayscale(0%) opacity(100%) invert(0); }
 
-        .testi-slide { transition: transform 0.5s ease, opacity 0.5s ease; position: absolute; top: 0; left: 0; width: 100%; opacity: 0; pointer-events: none; }
+        .testi-slide { transition: transform 0.5s ease, opacity 0.5s ease; position: absolute; top: 0; left: 0; width: 100%; opacity: 0; pointer-events: none; will-change: opacity; }
         .testi-slide.active { position: relative; opacity: 1; pointer-events: auto; }
 
         .target-btn { transition: all 0.3s ease; }
         .target-btn.active { background-color: #2563eb; color: #ffffff; border-color: #2563eb; box-shadow: 0 10px 20px -5px rgba(37,99,235,0.4); transform: translateY(-2px); }
         .dark .target-btn.active { background-color: #3b82f6; border-color: #3b82f6; }
         
-        .float-wa { position: fixed; width: 60px; height: 60px; bottom: 30px; right: 30px; background-color: #25d366; color: #FFF; border-radius: 50px; text-align: center; font-size: 30px; box-shadow: 0px 4px 20px rgba(37, 211, 102, 0.4); z-index: 100; transition: transform 0.3s ease; display: flex; align-items: center; justify-content: center; text-decoration: none; }
+        .float-wa { position: fixed; width: 60px; height: 60px; bottom: 30px; right: 30px; background-color: #25d366; color: #FFF; border-radius: 50px; text-align: center; font-size: 30px; box-shadow: 0px 4px 20px rgba(37, 211, 102, 0.4); z-index: 100; transition: transform 0.3s ease; display: flex; align-items: center; justify-content: center; text-decoration: none; cursor: pointer; }
         .float-wa:hover { transform: scale(1.1); }
     </style>
 </head>
@@ -69,14 +75,14 @@
     <div class="bg-glow-orb w-[500px] h-[500px] bg-blue-400 top-[-100px] left-[-100px]"></div>
     <div class="bg-glow-orb w-[600px] h-[600px] bg-cyan-400 top-[20%] right-[-200px] opacity-20"></div>
 
-    <a href="https://wa.me/6287887046946?text=Halo%20DY%20Collective,%20saya%20ingin%20berdiskusi%20tentang%20Google%20Ads." class="float-wa" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+    <a id="floatWaBtn" class="float-wa" aria-label="Chat WhatsApp Langsung"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>
 
     <nav class="fixed w-full z-50 top-0 bg-white/80 dark:bg-brand-black/80 backdrop-blur-xl border-b border-gray-100 dark:border-gray-800 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-20">
             <div class="font-black text-2xl tracking-tighter z-10">DY<span class="text-brand-blue">Collective.</span></div>
             
-            <button id="mobileMenuBtn" class="md:hidden text-gray-700 dark:text-gray-200 text-2xl z-10 p-2">
-                <i class="fa-solid fa-bars"></i>
+            <button id="mobileMenuBtn" class="md:hidden text-gray-700 dark:text-gray-200 text-2xl z-10 p-2" aria-label="Buka Menu Navigasi">
+                <i class="fa-solid fa-bars" aria-hidden="true"></i>
             </button>
 
             <div class="hidden md:flex space-x-6 items-center z-10">
@@ -85,12 +91,12 @@
                 <a href="#calculator" class="lang-text text-sm font-semibold text-gray-600 dark:text-gray-300 hover:text-brand-blue transition" data-ina="Kalkulator ROI" data-eng="ROI Calc">Kalkulator ROI</a>
                 
                 <div class="flex items-center gap-2 border-l border-gray-200 dark:border-gray-700 pl-6 ml-2">
-                    <button class="lang-toggle flex items-center gap-2 bg-gray-100 dark:bg-gray-800 px-3 py-1.5 rounded-md text-xs font-bold text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 transition">
-                        <i class="fa-solid fa-globe text-brand-blue"></i> <span class="current-lang-display">INA</span>
+                    <button class="lang-toggle flex items-center gap-2 bg-gray-100 dark:bg-gray-800 px-3 py-1.5 rounded-md text-xs font-bold text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 transition" aria-label="Ganti Bahasa">
+                        <i class="fa-solid fa-globe text-brand-blue" aria-hidden="true"></i> <span class="current-lang-display">INA</span>
                     </button>
-                    <button class="theme-toggle flex items-center justify-center w-8 h-8 rounded-md bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 transition">
-                        <i class="fa-solid fa-moon dark:hidden"></i>
-                        <i class="fa-solid fa-sun hidden dark:block text-yellow-400"></i>
+                    <button class="theme-toggle flex items-center justify-center w-8 h-8 rounded-md bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 transition" aria-label="Ganti Mode Gelap/Terang">
+                        <i class="fa-solid fa-moon dark:hidden" aria-hidden="true"></i>
+                        <i class="fa-solid fa-sun hidden dark:block text-yellow-400" aria-hidden="true"></i>
                     </button>
                 </div>
                 <a href="#form-audit" class="lang-text bg-brand-black dark:bg-white text-white dark:text-black px-6 py-2.5 text-sm font-bold rounded-lg hover:scale-105 transition-transform ml-4 shadow-lg shadow-black/10 dark:shadow-white/10" data-ina="Audit Akun" data-eng="Account Audit">Audit Akun</a>
@@ -103,12 +109,12 @@
             <a href="#calculator" class="mobile-link lang-text font-semibold text-gray-800 dark:text-gray-200 text-lg mb-6" data-ina="Kalkulator ROI" data-eng="ROI Calc">Kalkulator ROI</a>
             
             <div class="flex items-center gap-4 border-t border-gray-200 dark:border-gray-800 pt-6 mb-6">
-                <button class="lang-toggle flex-1 flex justify-center items-center gap-2 bg-gray-100 dark:bg-gray-800 px-4 py-3 rounded-lg font-bold text-gray-700 dark:text-gray-200">
-                    <i class="fa-solid fa-globe text-brand-blue"></i> <span class="current-lang-display">INA</span>
+                <button class="lang-toggle flex-1 flex justify-center items-center gap-2 bg-gray-100 dark:bg-gray-800 px-4 py-3 rounded-lg font-bold text-gray-700 dark:text-gray-200" aria-label="Ganti Bahasa">
+                    <i class="fa-solid fa-globe text-brand-blue" aria-hidden="true"></i> <span class="current-lang-display">INA</span>
                 </button>
-                <button class="theme-toggle flex items-center justify-center w-12 h-12 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200">
-                    <i class="fa-solid fa-moon dark:hidden"></i>
-                    <i class="fa-solid fa-sun hidden dark:block text-yellow-400 text-lg"></i>
+                <button class="theme-toggle flex items-center justify-center w-12 h-12 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200" aria-label="Ganti Mode Gelap/Terang">
+                    <i class="fa-solid fa-moon dark:hidden" aria-hidden="true"></i>
+                    <i class="fa-solid fa-sun hidden dark:block text-yellow-400 text-lg" aria-hidden="true"></i>
                 </button>
             </div>
             
@@ -120,7 +126,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:text-left">
             <div class="max-w-4xl mx-auto md:mx-0">
                 <div class="inline-flex items-center gap-2 px-4 py-2 bg-white/50 dark:bg-gray-800/50 backdrop-blur-md border border-gray-200 dark:border-gray-700 rounded-full text-brand-blue text-xs font-bold uppercase tracking-wider mb-8 shadow-sm">
-                    <i class="fa-brands fa-google text-brand-blue"></i> <span class="lang-text" data-ina="Official Google Ads Partner" data-eng="Official Google Ads Partner">Official Google Ads Partner</span>
+                    <i class="fa-brands fa-google text-brand-blue" aria-hidden="true"></i> <span class="lang-text" data-ina="Official Google Ads Partner" data-eng="Official Google Ads Partner">Official Google Ads Partner</span>
                 </div>
                 
                 <h1 class="lang-text text-5xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-[1.05] mb-6"
@@ -148,33 +154,33 @@
             </div>
             <div class="marquee-container light-fade py-4">
                 <div class="marquee-content">
-                    <img src="Assets/akses.png" alt="Akses" class="client-logo">
-                    <img src="Assets/Alhijaz.png" alt="Alhijaz" class="client-logo">
-                    <img src="Assets/bakolan.png" alt="Bakolan" class="client-logo">
-                    <img src="Assets/Empire.png" alt="Empire" class="client-logo">
-                    <img src="Assets/FP.png" alt="FProject" class="client-logo">
-                    <img src="Assets/ghg.png" alt="GohalalGo" class="client-logo">
-                    <img src="Assets/gorilaz.png" alt="Gorillaz" class="client-logo">
-                    <img src="Assets/KX.png" alt="KXPilates" class="client-logo">
-                    <img src="Assets/Liquid.png" alt="Liquid" class="client-logo">
-                    <img src="Assets/MFT.png" alt="Myfitsociety" class="client-logo">
-                    <img src="Assets/SB.png" alt="StoryBlast" class="client-logo">
-                    <img src="Assets/SM.png" alt="SmartAir" class="client-logo">
-                    <img src="Assets/virtu.png" alt="Virtu" class="client-logo">
+                    <img src="Assets/akses.png" alt="Client Akses" width="150" height="40" loading="lazy" class="client-logo">
+                    <img src="Assets/Alhijaz.png" alt="Client Alhijaz" width="150" height="40" loading="lazy" class="client-logo">
+                    <img src="Assets/bakolan.png" alt="Client Bakolan" width="150" height="40" loading="lazy" class="client-logo">
+                    <img src="Assets/Empire.png" alt="Client Empire" width="150" height="40" loading="lazy" class="client-logo">
+                    <img src="Assets/FP.png" alt="Client FProject" width="150" height="40" loading="lazy" class="client-logo">
+                    <img src="Assets/ghg.png" alt="Client GohalalGo" width="150" height="40" loading="lazy" class="client-logo">
+                    <img src="Assets/gorilaz.png" alt="Client Gorillaz" width="150" height="40" loading="lazy" class="client-logo">
+                    <img src="Assets/KX.png" alt="Client KXPilates" width="150" height="40" loading="lazy" class="client-logo">
+                    <img src="Assets/Liquid.png" alt="Client Liquid" width="150" height="40" loading="lazy" class="client-logo">
+                    <img src="Assets/MFT.png" alt="Client Myfitsociety" width="150" height="40" loading="lazy" class="client-logo">
+                    <img src="Assets/SB.png" alt="Client StoryBlast" width="150" height="40" loading="lazy" class="client-logo">
+                    <img src="Assets/SM.png" alt="Client SmartAir" width="150" height="40" loading="lazy" class="client-logo">
+                    <img src="Assets/virtu.png" alt="Client Virtu" width="150" height="40" loading="lazy" class="client-logo">
 
-                    <img src="Assets/akses.png" alt="Akses" class="client-logo">
-                    <img src="Assets/Alhijaz.png" alt="Alhijaz" class="client-logo">
-                    <img src="Assets/bakolan.png" alt="Bakolan" class="client-logo">
-                    <img src="Assets/Empire.png" alt="Empire" class="client-logo">
-                    <img src="Assets/FP.png" alt="FProject" class="client-logo">
-                    <img src="Assets/ghg.png" alt="GohalalGo" class="client-logo">
-                    <img src="Assets/gorilaz.png" alt="Gorillaz" class="client-logo">
-                    <img src="Assets/KX.png" alt="KXPilates" class="client-logo">
-                    <img src="Assets/Liquid.png" alt="Liquid" class="client-logo">
-                    <img src="Assets/MFT.png" alt="Myfitsociety" class="client-logo">
-                    <img src="Assets/SB.png" alt="StoryBlast" class="client-logo">
-                    <img src="Assets/SM.png" alt="SmartAir" class="client-logo">
-                    <img src="Assets/virtu.png" alt="Virtu" class="client-logo">
+                    <img src="Assets/akses.png" alt="Client Akses" width="150" height="40" loading="lazy" class="client-logo">
+                    <img src="Assets/Alhijaz.png" alt="Client Alhijaz" width="150" height="40" loading="lazy" class="client-logo">
+                    <img src="Assets/bakolan.png" alt="Client Bakolan" width="150" height="40" loading="lazy" class="client-logo">
+                    <img src="Assets/Empire.png" alt="Client Empire" width="150" height="40" loading="lazy" class="client-logo">
+                    <img src="Assets/FP.png" alt="Client FProject" width="150" height="40" loading="lazy" class="client-logo">
+                    <img src="Assets/ghg.png" alt="Client GohalalGo" width="150" height="40" loading="lazy" class="client-logo">
+                    <img src="Assets/gorilaz.png" alt="Client Gorillaz" width="150" height="40" loading="lazy" class="client-logo">
+                    <img src="Assets/KX.png" alt="Client KXPilates" width="150" height="40" loading="lazy" class="client-logo">
+                    <img src="Assets/Liquid.png" alt="Client Liquid" width="150" height="40" loading="lazy" class="client-logo">
+                    <img src="Assets/MFT.png" alt="Client Myfitsociety" width="150" height="40" loading="lazy" class="client-logo">
+                    <img src="Assets/SB.png" alt="Client StoryBlast" width="150" height="40" loading="lazy" class="client-logo">
+                    <img src="Assets/SM.png" alt="Client SmartAir" width="150" height="40" loading="lazy" class="client-logo">
+                    <img src="Assets/virtu.png" alt="Client Virtu" width="150" height="40" loading="lazy" class="client-logo">
                 </div>
             </div>
         </div>
@@ -225,33 +231,33 @@
 
                 <div class="space-y-4">
                     <div class="accordion-item active bg-white dark:bg-[#111111] border border-gray-200 dark:border-gray-800 rounded-2xl overflow-hidden shadow-sm">
-                        <button class="accordion-header w-full px-6 py-5 text-left flex justify-between items-center bg-gray-50 dark:bg-[#151515] hover:bg-gray-100 dark:hover:bg-gray-800 transition">
+                        <button aria-expanded="true" aria-controls="acc-1" class="accordion-header w-full px-6 py-5 text-left flex justify-between items-center bg-gray-50 dark:bg-[#151515] hover:bg-gray-100 dark:hover:bg-gray-800 transition">
                             <span class="font-bold text-lg dark:text-white">Precision Tracking (GTM & GA4)</span>
-                            <i class="fa-solid fa-chevron-down accordion-icon dark:text-gray-400"></i>
+                            <i class="fa-solid fa-chevron-down accordion-icon dark:text-gray-400" aria-hidden="true"></i>
                         </button>
-                        <div class="accordion-content bg-white dark:bg-[#111111]">
+                        <div id="acc-1" class="accordion-content bg-white dark:bg-[#111111]">
                             <div class="lang-text px-6 pb-6 pt-2 text-gray-600 dark:text-gray-400 text-sm leading-relaxed" data-ina="Tanpa pelacakan yang benar, algoritma Google akan bekerja buta. Kami mengatur konversi (Klik WA, Form Leads, Checkout) dengan Server-Side Tagging agar algoritma fokus mencari pembeli potensial." data-eng="Without proper tracking, Google's algorithm works blindly. We setup conversions (WA Clicks, Lead Forms, Checkouts) with Server-Side Tagging so the algorithm focuses on finding potential buyers.">
                                 Tanpa pelacakan yang benar, algoritma Google akan bekerja buta. Kami mengatur konversi (Klik WA, Form Leads, Checkout) dengan Server-Side Tagging agar algoritma fokus mencari pembeli potensial.
                             </div>
                         </div>
                     </div>
                     <div class="accordion-item bg-white dark:bg-[#111111] border border-gray-200 dark:border-gray-800 rounded-2xl overflow-hidden shadow-sm">
-                        <button class="accordion-header w-full px-6 py-5 text-left flex justify-between items-center bg-gray-50 dark:bg-[#151515] hover:bg-gray-100 dark:hover:bg-gray-800 transition">
+                        <button aria-expanded="false" aria-controls="acc-2" class="accordion-header w-full px-6 py-5 text-left flex justify-between items-center bg-gray-50 dark:bg-[#151515] hover:bg-gray-100 dark:hover:bg-gray-800 transition">
                             <span class="font-bold text-lg dark:text-white">AI-Driven Optimization (GEAR)</span>
-                            <i class="fa-solid fa-chevron-down accordion-icon dark:text-gray-400"></i>
+                            <i class="fa-solid fa-chevron-down accordion-icon dark:text-gray-400" aria-hidden="true"></i>
                         </button>
-                        <div class="accordion-content bg-white dark:bg-[#111111]">
+                        <div id="acc-2" class="accordion-content bg-white dark:bg-[#111111]">
                             <div class="lang-text px-6 pb-6 pt-2 text-gray-600 dark:text-gray-400 text-sm leading-relaxed" data-ina="Sebagai agensi tersertifikasi Gemini Enterprise Agent Ready (GEAR), kami memadukan strategi analitik manusia dengan presisi AI untuk memangkas Biaya Akuisisi (CPA) Anda secara efisien." data-eng="As a Gemini Enterprise Agent Ready (GEAR) certified agency, we combine human analytical strategy with AI precision to efficiently cut your Cost Per Acquisition (CPA).">
                                 Sebagai agensi tersertifikasi Gemini Enterprise Agent Ready (GEAR), kami memadukan strategi analitik manusia dengan presisi AI untuk memangkas Biaya Akuisisi (CPA) Anda secara efisien.
                             </div>
                         </div>
                     </div>
                     <div class="accordion-item bg-white dark:bg-[#111111] border border-gray-200 dark:border-gray-800 rounded-2xl overflow-hidden shadow-sm">
-                        <button class="accordion-header w-full px-6 py-5 text-left flex justify-between items-center bg-gray-50 dark:bg-[#151515] hover:bg-gray-100 dark:hover:bg-gray-800 transition">
+                        <button aria-expanded="false" aria-controls="acc-3" class="accordion-header w-full px-6 py-5 text-left flex justify-between items-center bg-gray-50 dark:bg-[#151515] hover:bg-gray-100 dark:hover:bg-gray-800 transition">
                             <span class="font-bold text-lg dark:text-white">Account Safety & Whitelisting</span>
-                            <i class="fa-solid fa-chevron-down accordion-icon dark:text-gray-400"></i>
+                            <i class="fa-solid fa-chevron-down accordion-icon dark:text-gray-400" aria-hidden="true"></i>
                         </button>
-                        <div class="accordion-content bg-white dark:bg-[#111111]">
+                        <div id="acc-3" class="accordion-content bg-white dark:bg-[#111111]">
                             <div class="lang-text px-6 pb-6 pt-2 text-gray-600 dark:text-gray-400 text-sm leading-relaxed" data-ina="Bisnis Anda berada di area sensitif (seperti klinik kecantikan atau properti)? Kami menyediakan struktur akun dengan histori pembayaran bersih untuk mitigasi otomatis penangguhan (suspend) sistem." data-eng="Is your business in a sensitive niche (like aesthetic clinics or property)? We provide account structures with clean payment histories to automatically mitigate system suspensions.">
                                 Bisnis Anda berada di area sensitif (seperti klinik kecantikan atau properti)? Kami menyediakan struktur akun dengan histori pembayaran bersih untuk mitigasi otomatis penangguhan (suspend) sistem.
                             </div>
@@ -268,13 +274,13 @@
             
             <div class="relative min-h-[250px] md:min-h-[200px] mt-8">
                 <div class="testi-slide active">
-                    <i class="fa-solid fa-quote-left text-4xl text-gray-300 dark:text-gray-700 mb-6"></i>
+                    <i class="fa-solid fa-quote-left text-4xl text-gray-300 dark:text-gray-700 mb-6" aria-hidden="true"></i>
                     <p class="lang-text text-xl md:text-2xl font-medium text-gray-800 dark:text-gray-200 mb-8 leading-relaxed" data-ina="Luar biasa. Tim DY Collective tidak sekadar menjalankan iklan, mereka membedah struktur konversi kami. Hasilnya? Target ROAS harian kami tercapai dengan stabil." data-eng="Incredible. The DY Collective team didn't just run ads, they dissected our conversion structure. The result? Our daily ROAS targets are met consistently.">"Luar biasa. Tim DY Collective tidak sekadar menjalankan iklan, mereka membedah struktur konversi kami. Hasilnya? Target ROAS harian kami tercapai dengan stabil."</p>
                     <div class="font-bold text-brand-black dark:text-white">Brand E-Commerce Retail</div>
                     <div class="text-sm text-brand-blue">Klien Performance Ads</div>
                 </div>
                 <div class="testi-slide">
-                    <i class="fa-solid fa-quote-left text-4xl text-gray-300 dark:text-gray-700 mb-6"></i>
+                    <i class="fa-solid fa-quote-left text-4xl text-gray-300 dark:text-gray-700 mb-6" aria-hidden="true"></i>
                     <p class="lang-text text-xl md:text-2xl font-medium text-gray-800 dark:text-gray-200 mb-8 leading-relaxed" data-ina="Industri klinik kecantikan sangat rentan suspend di Google. DY Collective memberikan solusi perlindungan akun dan menekan biaya per janji temu (CPL) secara signifikan." data-eng="The aesthetic clinic industry is highly prone to Google suspensions. DY Collective provided account protection solutions and significantly reduced our cost per appointment (CPL).">"Industri klinik kecantikan sangat rentan suspend di Google. DY Collective memberikan solusi perlindungan akun dan menekan biaya per janji temu (CPL) secara signifikan."</p>
                     <div class="font-bold text-brand-black dark:text-white">Klinik Estetika Jakarta</div>
                     <div class="text-sm text-brand-blue">Klien Lead Generation</div>
@@ -282,8 +288,8 @@
             </div>
 
             <div class="flex justify-center gap-3 mt-8" id="testiDots">
-                <button class="w-8 h-2 rounded-full bg-brand-blue transition-all duration-300"></button>
-                <button class="w-2 h-2 rounded-full bg-gray-300 dark:bg-gray-700 transition-all duration-300"></button>
+                <button aria-label="Slide Testimoni 1" class="w-8 h-2 rounded-full bg-brand-blue transition-all duration-300"></button>
+                <button aria-label="Slide Testimoni 2" class="w-2 h-2 rounded-full bg-gray-300 dark:bg-gray-700 transition-all duration-300"></button>
             </div>
         </div>
     </section>
@@ -328,22 +334,22 @@
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div class="bg-gray-50 dark:bg-[#151515] border border-gray-200 dark:border-gray-800 p-10 rounded-2xl hover:border-brand-blue transition">
-                    <div class="w-14 h-14 bg-blue-50 dark:bg-blue-900/20 text-brand-blue rounded-xl flex items-center justify-center text-2xl mb-6"><i class="fa-solid fa-bullseye"></i></div>
+                    <div class="w-14 h-14 bg-blue-50 dark:bg-blue-900/20 text-brand-blue rounded-xl flex items-center justify-center text-2xl mb-6"><i class="fa-solid fa-bullseye" aria-hidden="true"></i></div>
                     <h3 class="lang-text text-2xl font-bold mb-4 dark:text-white" data-ina="Performance Google Ads" data-eng="Performance Google Ads">Performance Google Ads</h3>
                     <p class="lang-text text-gray-600 dark:text-gray-400" data-ina="Pengelolaan kampanye Search, Display, PMax, dan YouTube secara presisi. Meliputi optimasi penawaran (bidding) hingga pengujian A/B." data-eng="Precise management of Search, Display, PMax, and YouTube campaigns. Includes bid optimization and A/B testing.">Pengelolaan kampanye Search, Display, PMax, dan YouTube secara presisi. Meliputi optimasi penawaran (bidding) hingga pengujian A/B.</p>
                 </div>
                 <div class="bg-gray-50 dark:bg-[#151515] border border-gray-200 dark:border-gray-800 p-10 rounded-2xl hover:border-purple-500 transition">
-                    <div class="w-14 h-14 bg-purple-50 dark:bg-purple-900/20 text-purple-500 rounded-xl flex items-center justify-center text-2xl mb-6"><i class="fa-solid fa-satellite-dish"></i></div>
+                    <div class="w-14 h-14 bg-purple-50 dark:bg-purple-900/20 text-purple-500 rounded-xl flex items-center justify-center text-2xl mb-6"><i class="fa-solid fa-satellite-dish" aria-hidden="true"></i></div>
                     <h3 class="lang-text text-2xl font-bold mb-4 dark:text-white" data-ina="Web Analytics & GTM" data-eng="Web Analytics & GTM">Web Analytics & GTM</h3>
                     <p class="lang-text text-gray-600 dark:text-gray-400" data-ina="Pemasangan pelacak konversi lanjutan (Advanced Tracking) untuk memastikan setiap aksi bernilai tinggi terekam di Analytics." data-eng="Installation of Advanced Tracking to ensure every high-value action is perfectly recorded in Analytics.">Pemasangan pelacak konversi lanjutan (Advanced Tracking) untuk memastikan setiap aksi bernilai tinggi terekam di Analytics.</p>
                 </div>
                 <div class="bg-gray-50 dark:bg-[#151515] border border-gray-200 dark:border-gray-800 p-10 rounded-2xl hover:border-emerald-500 transition">
-                    <div class="w-14 h-14 bg-emerald-50 dark:bg-emerald-900/20 text-emerald-500 rounded-xl flex items-center justify-center text-2xl mb-6"><i class="fa-solid fa-building-user"></i></div>
+                    <div class="w-14 h-14 bg-emerald-50 dark:bg-emerald-900/20 text-emerald-500 rounded-xl flex items-center justify-center text-2xl mb-6"><i class="fa-solid fa-building-user" aria-hidden="true"></i></div>
                     <h3 class="lang-text text-2xl font-bold mb-4 dark:text-white" data-ina="White-Label Partner" data-eng="White-Label Partner">White-Label Partner</h3>
                     <p class="lang-text text-gray-600 dark:text-gray-400" data-ina="Solusi dukungan operasional bagi Agensi Kreatif. Kami menjalankan aspek teknis iklan; pelaporan tetap menggunakan identitas brand Anda." data-eng="Operational support solution for Creative Agencies. We run the technical aspects; reporting remains under your brand identity.">Solusi dukungan operasional bagi Agensi Kreatif. Kami menjalankan aspek teknis iklan; pelaporan tetap menggunakan identitas brand Anda.</p>
                 </div>
                 <div class="bg-gray-50 dark:bg-[#151515] border border-gray-200 dark:border-gray-800 p-10 rounded-2xl hover:border-brand-blue transition">
-                    <div class="w-14 h-14 bg-brand-blue text-white rounded-xl flex items-center justify-center text-2xl mb-6"><i class="fa-solid fa-shield-halved"></i></div>
+                    <div class="w-14 h-14 bg-brand-blue text-white rounded-xl flex items-center justify-center text-2xl mb-6"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i></div>
                     <h3 class="lang-text text-2xl font-bold mb-4 dark:text-white" data-ina="Account Protection" data-eng="Account Protection">Account Protection</h3>
                     <p class="lang-text text-gray-600 dark:text-gray-400" data-ina="Akses ke akun tersertifikasi untuk meminimalkan risiko penghentian layanan (suspend). Ideal untuk industri dengan regulasi iklan yang ketat." data-eng="Access to certified accounts to minimize suspension risks. Ideal for industries with strict advertising regulations.">Akses ke akun tersertifikasi untuk meminimalkan risiko penghentian layanan (suspend). Ideal untuk industri dengan regulasi iklan yang ketat.</p>
                 </div>
@@ -407,6 +413,7 @@
 
                 <form id="leadForm" class="space-y-6 text-brand-black dark:text-white mb-10">
                     <input type="hidden" id="gclid" value="">
+                    <input type="hidden" id="fbclid" value="">
                     <input type="hidden" id="utm_keyword" value="">
                     <input type="hidden" id="utm_device" value="">
                     <input type="hidden" id="utm_network" value="">
@@ -414,18 +421,18 @@
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
-                            <label class="block text-sm font-bold text-gray-700 dark:text-gray-400 mb-2">Nama Lengkap / Brand *</label>
+                            <label for="waNama" class="block text-sm font-bold text-gray-700 dark:text-gray-400 mb-2">Nama Lengkap / Brand *</label>
                             <input type="text" id="waNama" class="w-full bg-gray-50 dark:bg-[#151515] border border-gray-300 dark:border-gray-700 rounded-xl px-4 py-4 focus:outline-none focus:border-brand-blue transition" required>
                         </div>
                         <div>
-                            <label class="block text-sm font-bold text-gray-700 dark:text-gray-400 mb-2">Nomor WhatsApp *</label>
+                            <label for="waNomor" class="block text-sm font-bold text-gray-700 dark:text-gray-400 mb-2">Nomor WhatsApp *</label>
                             <input type="tel" id="waNomor" class="w-full bg-gray-50 dark:bg-[#151515] border border-gray-300 dark:border-gray-700 rounded-xl px-4 py-4 focus:outline-none focus:border-brand-blue transition" required>
                         </div>
                     </div>
                     
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
-                            <label class="block text-sm font-bold text-gray-700 dark:text-gray-400 mb-2">Layanan yang Dibutuhkan *</label>
+                            <label for="waLayanan" class="block text-sm font-bold text-gray-700 dark:text-gray-400 mb-2">Layanan yang Dibutuhkan *</label>
                             <select id="waLayanan" class="w-full bg-gray-50 dark:bg-[#151515] border border-gray-300 dark:border-gray-700 rounded-xl px-4 py-4 focus:outline-none focus:border-brand-blue transition text-sm" required>
                                 <option value="Digital Ads (Meta/Google/TikTok)">Manajemen Digital Ads (Meta/Google/TikTok)</option>
                                 <option value="Marketplace Optimization">Optimasi Marketplace (Shopee/Tokopedia)</option>
@@ -433,13 +440,13 @@
                             </select>
                         </div>
                         <div>
-                            <label class="block text-sm font-bold text-gray-700 dark:text-gray-400 mb-2">Link Web / Toko Marketplace</label>
+                            <label for="waWeb" class="block text-sm font-bold text-gray-700 dark:text-gray-400 mb-2">Link Web / Toko Marketplace</label>
                             <input type="url" id="waWeb" placeholder="https://..." class="w-full bg-gray-50 dark:bg-[#151515] border border-gray-300 dark:border-gray-700 rounded-xl px-4 py-4 focus:outline-none focus:border-brand-blue transition">
                         </div>
                     </div>
 
                     <div>
-                        <label class="block text-sm font-bold text-gray-700 dark:text-gray-400 mb-2">Estimasi Anggaran Iklan Bulanan *</label>
+                        <label for="waBudget" class="block text-sm font-bold text-gray-700 dark:text-gray-400 mb-2">Estimasi Anggaran Iklan Bulanan *</label>
                         <select id="waBudget" class="w-full bg-gray-50 dark:bg-[#151515] border border-gray-300 dark:border-gray-700 rounded-xl px-4 py-4 focus:outline-none focus:border-brand-blue transition text-sm" required>
                             <option value="Belum Pernah (Mulai Baru)">Ingin Memulai Baru (Klaim Promo)</option>
                             <option value="Target UMKM (Rp 5 Jt)">Sekitar Rp 5 Juta / Bulan</option>
@@ -460,7 +467,7 @@
                         <div id="certSlider" class="flex transition-transform duration-500 ease-in-out w-[300%]">
                             <div class="w-1/3 flex items-center justify-center gap-5 px-4">
                                 <div class="w-12 h-12 bg-blue-50 dark:bg-blue-900/20 rounded-full flex items-center justify-center shrink-0">
-                                    <i class="fa-solid fa-medal text-2xl text-brand-blue"></i>
+                                    <i class="fa-solid fa-medal text-2xl text-brand-blue" aria-hidden="true"></i>
                                 </div>
                                 <div class="text-left">
                                     <div class="font-bold text-sm text-gray-900 dark:text-white">Google Ads Guru</div>
@@ -469,7 +476,7 @@
                             </div>
                             <div class="w-1/3 flex items-center justify-center gap-5 px-4">
                                 <div class="w-12 h-12 bg-red-50 dark:bg-red-900/20 rounded-full flex items-center justify-center shrink-0">
-                                    <i class="fa-brands fa-google text-2xl text-red-500"></i>
+                                    <i class="fa-brands fa-google text-2xl text-red-500" aria-hidden="true"></i>
                                 </div>
                                 <div class="text-left">
                                     <div class="font-bold text-sm text-gray-900 dark:text-white">Google Ads Certified</div>
@@ -478,7 +485,7 @@
                             </div>
                             <div class="w-1/3 flex items-center justify-center gap-5 px-4">
                                 <div class="w-12 h-12 bg-purple-50 dark:bg-purple-900/20 rounded-full flex items-center justify-center shrink-0">
-                                    <i class="fa-solid fa-robot text-2xl text-purple-500"></i>
+                                    <i class="fa-solid fa-robot text-2xl text-purple-500" aria-hidden="true"></i>
                                 </div>
                                 <div class="text-left">
                                     <div class="font-bold text-sm text-gray-900 dark:text-white">Gemini Program (GEAR)</div>
@@ -488,9 +495,9 @@
                         </div>
 
                         <div class="flex justify-center gap-2 mt-6" id="certDots">
-                            <button class="w-4 h-2 rounded-full bg-brand-blue transition-all duration-300"></button>
-                            <button class="w-2 h-2 rounded-full bg-gray-300 dark:bg-gray-700 transition-all duration-300"></button>
-                            <button class="w-2 h-2 rounded-full bg-gray-300 dark:bg-gray-700 transition-all duration-300"></button>
+                            <button aria-label="Sertifikat 1" class="w-4 h-2 rounded-full bg-brand-blue transition-all duration-300"></button>
+                            <button aria-label="Sertifikat 2" class="w-2 h-2 rounded-full bg-gray-300 dark:bg-gray-700 transition-all duration-300"></button>
+                            <button aria-label="Sertifikat 3" class="w-2 h-2 rounded-full bg-gray-300 dark:bg-gray-700 transition-all duration-300"></button>
                         </div>
                     </div>
                 </div>
@@ -549,12 +556,16 @@
         mobileMenuBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
             mobileMenu.classList.toggle('flex');
+            // Aksesibilitas: Toggle aria-expanded
+            const isExpanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true';
+            mobileMenuBtn.setAttribute('aria-expanded', !isExpanded);
         });
-        // Auto-close menu when link is clicked
+        
         document.querySelectorAll('.mobile-link').forEach(link => {
             link.addEventListener('click', () => {
                 mobileMenu.classList.add('hidden');
                 mobileMenu.classList.remove('flex');
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
             });
         });
 
@@ -588,11 +599,13 @@
                 accordionItems.forEach(i => {
                     i.classList.remove('active');
                     i.querySelector('.accordion-content').style.maxHeight = null;
+                    i.querySelector('.accordion-header').setAttribute('aria-expanded', 'false');
                 });
                 if (!isActive) {
                     item.classList.add('active');
                     const content = item.querySelector('.accordion-content');
                     content.style.maxHeight = content.scrollHeight + "px";
+                    header.setAttribute('aria-expanded', 'true');
                 }
             });
         });
@@ -661,12 +674,14 @@
 
         window.addEventListener('DOMContentLoaded', (event) => {
             document.getElementById('gclid').value = getQueryParam('gclid');
+            document.getElementById('fbclid').value = getQueryParam('fbclid'); // Tangkap Parameter Meta
             document.getElementById('utm_keyword').value = getQueryParam('keyword'); 
             document.getElementById('utm_device').value = getQueryParam('device');
             document.getElementById('utm_network').value = getQueryParam('network');
             document.getElementById('utm_matchtype').value = getQueryParam('matchtype');
         });
 
+        // Eksekusi Form Audit
         document.getElementById('leadForm').addEventListener('submit', function(e) {
             e.preventDefault(); 
             const submitBtn = this.querySelector('button[type="submit"]');
@@ -681,6 +696,7 @@
             const budget = document.getElementById('waBudget').value;
 
             const gclid = document.getElementById('gclid').value;
+            const fbclid = document.getElementById('fbclid').value;
             const keyword = document.getElementById('utm_keyword').value;
             const device = document.getElementById('utm_device').value;
             const network = document.getElementById('utm_network').value;
@@ -695,6 +711,7 @@
             formData.append('web', web);
             formData.append('budget', budget);
             formData.append('gclid', gclid);
+            formData.append('fbclid', fbclid); // Kirim ke GS
             formData.append('keyword', keyword);
             formData.append('device', device);
             formData.append('network', network);
@@ -702,18 +719,19 @@
 
             fetch(scriptURL, { method: 'POST', body: formData, mode: 'no-cors' })
                 .then(response => {
-                    if(typeof fbq !== 'undefined') {
-                        fbq('track', 'Lead', { content_category: layanan });
+                    // Logika Penentuan Prefix WhatsApp berdasarkan Tracker
+                    let prefix = '';
+                    if (gclid) {
+                        prefix = `[GA: ${gclid}]\nGreetings Google Ads\n\n`;
+                    } else if (fbclid) {
+                        prefix = `[MT: ${fbclid}]\nGreetings Meta Ads\n\n`;
+                    } else {
+                        const randomId = Math.floor(Date.now() / 1000);
+                        prefix = `[OG: ${randomId}]\nGreeting Organic\n\n`;
                     }
-                    window.dataLayer = window.dataLayer || [];
-                    window.dataLayer.push({
-                        'event': 'form_wa_submitted',
-                        'lead_type': layanan,
-                        'gclid': gclid
-                    });
 
                     const nomorTujuan = '6287887046946'; 
-                    let pesan = `Halo Tim DY Collective,\n\nSaya tertarik untuk konsultasi dan audit:\n\n` +
+                    let pesan = `${prefix}Halo Tim DY Collective,\n\nSaya tertarik untuk konsultasi dan audit:\n\n` +
                                 `👤 Brand/Nama: ${nama}\n` +
                                 `📱 WhatsApp: ${wa}\n` +
                                 `🎯 Layanan: ${layanan}\n` +
@@ -725,14 +743,51 @@
                     document.getElementById('leadForm').reset();
                     submitBtn.innerHTML = originalBtnText;
                     submitBtn.disabled = false;
-                })
-                .catch(error => {
-                    console.error('Error!', error.message);
-                    alert("Terjadi kesalahan sistem. Silakan coba lagi nanti.");
-                    submitBtn.innerHTML = originalBtnText;
-                    submitBtn.disabled = false;
                 });
         });
+
+        // 9. Offline Conversion Tracking untuk Tombol Float WA
+        const floatWaBtn = document.getElementById('floatWaBtn');
+        if(floatWaBtn) {
+            floatWaBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+
+                const gclid = document.getElementById('gclid').value;
+                const fbclid = document.getElementById('fbclid').value;
+                const keyword = document.getElementById('utm_keyword').value;
+
+                // Rekam klik ke Google Sheet secara background
+                const formData = new FormData();
+                formData.append('nama', 'Direct Float WA Click');
+                formData.append('wa', 'Cek di Chat WA');
+                formData.append('layanan', 'Direct WhatsApp Button');
+                formData.append('web', window.location.href);
+                formData.append('budget', 'N/A');
+                formData.append('gclid', gclid);
+                formData.append('fbclid', fbclid);
+                formData.append('keyword', keyword);
+
+                const scriptURL = 'https://script.google.com/macros/s/AKfycbwlvTxhs1YQlFedBBq6jQ0ae9S6vyKo5kwsv9zYLSJflOjt7eNxwlJTSS6KZjVV0gbd/exec'; 
+                fetch(scriptURL, { method: 'POST', body: formData, mode: 'no-cors', keepalive: true })
+                    .catch(err => console.error('Error logging WA click:', err));
+
+                // Logika Penentuan Prefix WhatsApp untuk klik langsung
+                let prefix = '';
+                if (gclid) {
+                    prefix = `[GA: ${gclid}]\nGreetings Google Ads\n\n`;
+                } else if (fbclid) {
+                    prefix = `[MT: ${fbclid}]\nGreetings Meta Ads\n\n`;
+                } else {
+                    const randomId = Math.floor(Date.now() / 1000);
+                    prefix = `[OG: ${randomId}]\nGreeting Organic\n\n`;
+                }
+
+                const nomorTujuan = '6287887046946';
+                let pesan = `${prefix}Halo DY Collective, saya tertarik dengan layanan Anda dan ingin berdiskusi lebih lanjut tentang Google Ads.`;
+                
+                window.open(`https://wa.me/${nomorTujuan}?text=${encodeURIComponent(pesan)}`, '_blank');
+            });
+        }
     </script>
 </body>
 </html>
